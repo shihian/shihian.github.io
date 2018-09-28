@@ -1,0 +1,500 @@
+$font = Arial, '微軟正黑體', 'Microsoft JhengHei', 'LiHei Pro';
+
+// $smallScreen = 'screen and (max-width 1216px)';
+// $tablet = 'screen and (max-width 1016px)';
+$mobile = 'screen and (max-width 767px)';
+$fourInch = 'screen and (max-width 375px)';
+
+// color variable
+$white = #FFFFFF;
+$yellow = #FFE180;
+$green = #3F5D45;
+$darkgreen = #8DA291;
+$gray = #EAF0ED;
+
+/*---------------------------------- style -----------------------------------*/
+* {-webkit-box-sizing: border-box;box-sizing: border-box;}
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, 
+figure, figcaption, fieldset, input, textarea, th, td
+  margin 0
+  padding 0
+
+body
+  font-family Arial, '微軟正黑體', 'Microsoft JhengHei', 'LiHei Pro'
+  font-size 16px
+  color $green
+  background-color $white
+  // transform translteX(0)
+  // transition transform 300ms ease-in-out
+  @media $mobile
+    overflow-x hidden
+
+// .menu-open
+//   transform translateX(200px)
+//   overflow-y hidden
+
+.overlay
+  .menu-open &
+    position fixed
+    width 100%
+    height 100%
+    top 0
+    bottom 0
+    left 0
+    right 0
+    background-color $white
+    opacity 0
+    transition all 300ms linear
+    z-index 999
+
+center()
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+
+.center
+  text-align center
+
+.right
+  text-align right
+
+.web-none
+  display none
+  @media $mobile
+    display block
+
+.mobile-none
+  display block
+  @media $mobile
+    display none
+
+.fourInch-none
+  display block
+  @media $fourInch
+    display none
+
+.container
+  width 100%
+  margin 0 auto
+
+.wrapper
+  width 940px
+  margin 0 auto
+  overflow hidden
+  @media $mobile
+    width 100%
+  .header &
+    display flex
+    justify-content space-between
+    align-items center
+  .newsletter &,
+  .footer &
+    display flex
+    justify-content space-around
+    @media $mobile
+      display block
+  .main-block &
+    position relative
+    overflow inherit
+
+.header
+  padding 30px 0
+  background-color $white
+  @media $mobile
+    padding 20px 0
+  img
+    height 40px
+    width auto
+  &-logo-group,
+  &-group
+    display flex
+  .logo
+    width 40px
+    margin-right 8px
+    @media $mobile
+      display none
+  .logo-type
+    width 170px
+    @media $mobile
+      width 115px
+  .menu
+    @media $mobile
+      position fixed
+      top 0
+      left 0
+      width 100%
+      padding 20px 30px
+      text-align center
+      background-color $green
+      opacity 0
+      margin-top 80px
+      transition all 300ms ease-in-out
+      .menu-open &
+        opacity 1
+        z-index 999
+    a
+      margin-left 60px
+      color $green
+      font-size 18px
+      font-weight bold
+      text-decoration none
+      &:hover
+        color $green
+        text-decoration underline
+      @media $mobile
+        margin 0 20px
+        text-align center
+        color $white
+        &:hover
+          color $white
+        &:last-child
+          border-bottom none
+  .shopping
+    margin-left 80px
+    @media $mobile
+      margin-left 0
+      margin-right 30px
+  .fixed-menu-trigger
+    display none
+    width 24px
+    height 24px
+    margin-left 30px
+    cursor pointer
+    z-index 999
+    @media $mobile
+      display block
+    .navbar
+      height 3px
+      width 20px
+      background-color $green
+      content ''
+      position absolute
+      top 39px
+      margin-left 1px
+      transition transform 0.5s ease-in-out
+      &:before,
+      &:after
+        height 3px
+        width 20px
+        background-color $green
+        content ''
+        position absolute     
+      .menu-open &
+        transform translateY(0px) rotate(135deg)
+        background-color $green
+      &:before
+        content ''
+        top -6px
+        .menu-open &
+          display none
+      &:after
+        content ''
+        top 6px
+        .menu-open &
+          transform translateY(-6px) rotate(270deg)
+          background-color $green
+
+.main-top
+  position relative
+  margin-bottom 60px
+  &-IMG
+    width 940px
+    height 496px
+    background-image url('../img/index.jpg')
+    background-size 100%
+    background-position-y -125px
+    background-repeat no-repeat
+    position absolute
+    @media $mobile
+      width 100%
+  &-menu
+    padding 0 80px
+    display flex
+    margin-top 410px
+    @media $mobile
+      padding 0
+    a
+      display inline-block
+      width calc((100% - 2px)/3)
+      height 256px
+      border-right $white 1px solid
+      position relative
+      background-color $green
+      @media $fourInch
+        height 180px
+      &:last-child
+        border-right none
+    .text
+      position absolute
+      top 50%
+      left calc((100% - 32px)/2)
+      transform translate(calc((100% - 32px)/2), -50%)
+      color $white
+      writing-mode tb-rl
+      writing-mode vertical-rl
+      font-size 24px
+      letter-spacing 2px
+      z-index 1
+  .active
+    background-color $yellow
+    .text
+      color $green
+      font-weight bold
+  &-menu-bg
+    display block
+    width 100%
+    height 100%
+    filter blur(5px)
+    opacity 0.3
+    background-size 100%
+  .chosen
+    background-image url('../img/main-top-menu-bg-1.jpg')
+  .recommend
+    background-image url('../img/main-top-menu-bg-2.jpg')
+  .newproduct
+    background-image url('../img/main-top-menu-bg-3.jpg')
+
+.main-block
+  width 100%
+  min-width 940px
+  height 460px
+  border-top 20px solid $white
+  border-bottom 20px solid $white
+  background-color $gray
+  margin-bottom 60px
+  @media $mobile
+    min-width inherit
+    border-top none
+    border-bottom none
+    margin-bottom 30px
+  &.no-reason
+    height 400px
+    background-color $white
+    margin-bottom 0
+    @media $mobile
+      height inherit
+      margin-bottom 30px
+  &-IMG
+    width 460px
+    height 460px
+    background-size 100%
+    background-position center center
+    position absolute
+    top -20px
+    @media $mobile
+      top 0
+    .select &
+      background-image url('../img/main-block-img-1.jpg')
+    .eat &
+      right 0
+      background-image url('../img/main-block-img-2.jpg')        
+  &-title
+    width 90px
+    position absolute
+    top -20px
+    .select &
+      right 0
+    .eat &
+      right 500px
+    .no-reason &
+      left calc((100% - 90px)/2)
+      transform translate(calc((100% - 90px)/2), 0)
+  &-title-mobile
+    width auto
+    height 60px
+    margin 0 auto
+  &-text
+    position absolute
+    height 300px
+    font-size 16px
+    letter-spacing 2px
+    line-height 2
+    writing-mode tb-rl
+    writing-mode vertical-rl
+    margin-top 70px
+    .select &
+      right 140px
+    .eat &
+      left 30px
+    p
+      &:last-child
+        margin-left 0
+
+.main-chosen-list
+  display flex
+  margin-bottom 60px
+  @media $mobile
+    padding 0 30px
+    margin-bottom 30px
+  .item
+    width calc((100% - 40px)/3)
+    margin-right 20px
+    @media $mobile
+      width calc((100% - 20px)/2)
+    @media $fourInch
+      width 100%
+    &:nth-child(1)
+      @media $fourInch
+        margin-right 0
+    &:nth-child(2)
+      @media $mobile
+        margin-right 0
+    &:nth-child(3)
+      margin-right 0
+    &-IMG-box
+      position relative
+      overflow hidden
+    .material-icons
+      cursor pointer
+      position absolute
+      top 15px
+      right 15px
+      z-index 1
+    &-tag
+      position absolute
+      left 10px
+      padding 20px 8px
+      font-size 16px
+      font-weight bold
+      letter-spacing 2px
+      color $white
+      writing-mode tb-rl
+      writing-mode vertical-rl
+      background-color $green
+      z-index 1
+    &-IMG
+      width 100%
+      display block
+    &-detail
+      display flex
+      line-height 60px
+      @media $mobile
+        display block
+      @media $fourInch
+        display flex
+      span
+        font-size 20px
+        border 1px solid $gray
+        @media $mobile
+          display block
+        @media $fourInch
+          display inline-block
+        &:first-child
+          width calc(100% - 127px)
+          @media $mobile
+            width 100%
+          @media $fourInch
+            width calc(100% - 127px)
+        &:last-child
+          width 127px
+          font-weight bold
+          border-left none
+          @media $mobile
+            width 100%
+            border-left 1px solid $gray
+            border-top none
+          @media $fourInch
+            width 127px
+            border-left none
+            border-top 1px solid $gray
+    &-btn
+      display block
+      font-size 24px
+      color $green
+      font-weight bold
+      text-decoration none
+      line-height 60px
+      background-color $gray
+      &:hover
+        color $green
+
+.newsletter
+  min-width 940px
+  color $white
+  background-color $green
+  padding 30px
+  @media $mobile
+    min-width inherit
+  .email
+    color $green
+    margin-left 20px
+    margin-right 10px
+  .arrow
+    color $green
+    center()
+  input
+    width calc(100% - 54px - 64px)
+    height 56px
+    background-color $gray
+    border none
+    outline none
+  button
+    position relative
+    cursor pointer
+    width 64px
+    height 56px
+    background-color $yellow
+    border-width 0px
+  &-title
+    display flex
+    align-items center
+    font-size 24px
+    img
+      width 40px
+      height 40px
+      margin-right 20px
+  &-enter
+    display flex
+    justify-content space-between
+    align-items center
+    width 380px
+    height 56px
+    background-color $gray
+    @media $mobile
+      margin-top 20px
+      width 100%
+
+.footer
+  min-width 940px
+  color $green
+  font-size 16px
+  background-color $gray
+  padding 30px
+  @media $mobile
+    min-width inherit
+  &-left
+    width 276px
+    @media $mobile
+      width 100%
+    img
+      width 170px
+    &-text
+      line-height 24px
+      margin-top 115px
+      @media $mobile
+        margin-top 35px
+    &-icon
+      margin-top 30px
+      img
+        width 32px
+        height 32px
+        margin-right 8px
+  &-right
+    width 380px
+    @media $mobile
+      width 100%
+    img
+      width 60px
+      @media $mobile
+        display none
+    &-text
+      font-family Times
+      margin-top 45px
+      @media $mobile
+        margin-top 20px
+        text-align left
+
+
+/*---------------------------------- style -----------------------------------*/
