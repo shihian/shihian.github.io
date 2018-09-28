@@ -1,2 +1,0 @@
-# shihian.github.io
-self
